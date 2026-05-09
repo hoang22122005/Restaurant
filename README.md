@@ -59,18 +59,6 @@ npm install
 ```bash
 npm run dev
 ```
-
-## ⚙️ Cấu hình Database Replication
-
-Để hệ thống hoạt động ổn định trong môi trường phân tán, cần cấu hình các tham số Skip Errors cho Distribution Agent:
-
-```text
--SkipErrors 20598:2627:8152
-```
-- **20598:** Row not found (Bỏ qua khi bản ghi bị xóa thủ công).
-- **2627:** Primary Key Violation (Tránh xung đột ID khi đồng bộ).
-- **8152:** String Truncation (Bỏ qua lỗi độ dài dữ liệu không khớp).
-
 ## 📱 Tính năng Chính
 - **Dashboard:** Thống kê doanh thu và hoạt động thời gian thực.
 - **Order Management:** Form tạo đơn hàng thông minh, tự động tính toán VAT và in hóa đơn.
