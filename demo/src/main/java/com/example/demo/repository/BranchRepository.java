@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BranchRepository extends JpaRepository<Branch, String> {
     List<Branch> findByRestaurant_RestaurantID(String restaurantID);
+    Branch findFirstByOrderByBranchIDDesc();
 }

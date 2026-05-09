@@ -13,5 +13,6 @@ public class OrderDetailDTO {
     private String dishID;
     private String dishName;
     private Integer quantity;
-    private BigDecimal price;
+    private BigDecimal unitPrice;
+    private BigDecimal dishPrice;
 }

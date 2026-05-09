@@ -9,7 +9,6 @@ import lombok.*;
 @Builder
 public class BranchDTO {
 
-    @NotBlank(message = "BranchID is required")
     private String branchID;
 
     @NotBlank(message = "BranchName is required")

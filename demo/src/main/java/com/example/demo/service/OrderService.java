@@ -145,7 +145,8 @@ public class OrderService {
                                 .dishID(od.getDish().getDishID().trim())
                                 .dishName(od.getDish().getDishName())
                                 .quantity(od.getQuantity())
-                                .price(od.getUnitPrice())
+                                .unitPrice(od.getUnitPrice())
+                                .dishPrice(od.getDish().getPrice())
                                 .build())
                         .collect(Collectors.toList()))
                 .build();

@@ -30,6 +30,24 @@ public class BranchService {
     }
 
     public BranchDTO create(BranchDTO dto) {
+        // 1. Generate new ID
+        Branch lastBranch = branchRepository.findFirstByOrderByBranchIDDesc();
+        long nextNumber = 1;
+        String prefix = "BRA";
+        
+        if (lastBranch != null && lastBranch.getBranchID() != null) {
+            String lastId = lastBranch.getBranchID().trim();
+            if (lastId.startsWith(prefix)) {
+                try {
+                    nextNumber = Long.parseLong(lastId.substring(prefix.length())) + 1;
+                } catch (Exception e) {
+                    nextNumber = 1;
+                }
+            }
+        }
+        String newID = prefix + String.format("%02d", nextNumber);
+        dto.setBranchID(newID);
+
         Restaurant restaurant = restaurantRepository.findById(dto.getRestaurantID().trim())
                 .orElseThrow(() -> new ResourceNotFoundException("Restaurant not found: " + dto.getRestaurantID()));
         Branch entity = toEntity(dto, restaurant);
